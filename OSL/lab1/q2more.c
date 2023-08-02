@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
     int f, i = 0, k = 0, p = 0, x;
     char c[200], ch;
 
-    for(x = 1; x < argc; x++;) {
+    for(x = 1; x < argc; x++) {
 
         if ((f = open(argv[x], O_RDONLY)) == -1) {
             printf("Error opening file %s ", argv[x]);
