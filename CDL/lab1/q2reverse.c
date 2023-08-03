@@ -12,7 +12,7 @@ int main() {
 	printf("Cannot open file %s \n", filename);
 	exit(0);
 	}
-	printf("Enter the filename to open for writing: \n");
+	printf("Enter the filename to open for writing: ");
 	scanf("%s", filename);
 	fptr2 = fopen(filename, "w+"); // Open another file for writing
 	c = fgetc(fptr);
@@ -20,7 +20,7 @@ int main() {
 		n++;
 		c = fgetc(fptr);
 	}
-	for(i = n; i > 0; i--) {
+	for(i = n - 1; i > 0; i--) {
 		fseek(fptr, i, SEEK_SET);
 		c = fgetc(fptr);
 		fputc(c, fptr2);
