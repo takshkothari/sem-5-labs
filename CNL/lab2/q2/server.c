@@ -10,7 +10,7 @@
 
 int server_fd, new_socket, addrlen, valread, i, j;
 struct sockaddr_in address;
-int numbers[3] = {0};
+int num[3] = {0};
 float result = 0;
 char msg[100];
 
@@ -28,15 +28,15 @@ void PerformServerTask() {
     while (1) {
         new_socket = accept(server_fd, (struct sockaddr *)&address, (socklen_t *)&addrlen);
         if (fork() == 0) {
-            valread = read(new_socket, numbers, sizeof(numbers));
-            if (numbers[1] == 1)
-                result = numbers[0] + numbers[2];
-            else if (numbers[1] == 2)
-                result = numbers[0] - numbers[2];
-            else if (numbers[1] == 3)
-                result = (numbers[0]) * (numbers[2]);
-            else if (numbers[1] == 4)
-                result = (numbers[0]) / (numbers[2]);
+            valread = read(new_socket, num, sizeof(num));
+            if (num[1] == 1)
+                result = num[0] + num[2];
+            else if (num[1] == 2)
+                result = num[0] - num[2];
+            else if (num[1] == 3)
+                result = (num[0]) * (num[2]);
+            else if (num[1] == 4)
+                result = (num[0]) / (num[2]);
 
             printf("\nOpeartion performed.\n");
             printf("Result calculated: %0.2f\n", result);

@@ -10,7 +10,7 @@
 
 int sock, addrlen, client_fd, valread;
 struct sockaddr_in address;
-int numbers[3] = {0};
+int num[3] = {0};
 char result[100] = {0};
 
 void CreateClientSocket() {
@@ -28,12 +28,12 @@ void PerformClientTask() {
         exit(1);
     }
     printf("Enter first operand: ");
-    scanf("%d", &(numbers[0]));
+    scanf("%d", &(num[0]));
     printf("1: +\n2: -\n3. *\n4. /\nEnter choice: ");
-    scanf("%d", &(numbers[1]));
+    scanf("%d", &(num[1]));
     printf("Enter second operand: ");
-    scanf("%d", &(numbers[2]));
-    send(sock, numbers, sizeof(numbers), 0);
+    scanf("%d", &(num[2]));
+    send(sock, num, sizeof(num), 0);
     printf("Opeartors and Operands sent.\n");
     valread = read(sock, &result, sizeof(result));
     printf("%s\n", result);
